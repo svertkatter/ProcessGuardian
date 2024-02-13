@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['ProcessGuardian.py'],
+    ['/Users/svertkatter/ProcessGuardian/ProcessGuardian.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -34,11 +34,11 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['gp128.ico'],
+    icon=['gp-128.ico'],
 )
 app = BUNDLE(
     exe,
     name='ProcessGuardian.app',
-    icon='gp128.ico',
+    icon='gp-128.ico',
     bundle_identifier=None,
 )
