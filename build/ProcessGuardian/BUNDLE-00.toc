@@ -1,0 +1,3 @@
+([('ProcessGuardian',
+   '/Users/svertkatter/ProcessGuardian/dist/ProcessGuardian',
+   'EXECUTABLE')],)
