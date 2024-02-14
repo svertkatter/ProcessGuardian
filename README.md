@@ -1,7 +1,7 @@
 
 <p align="center">
     <img src="gp-128.ico">
-    <h1>ProcessGuardian for macOS: 安心の監視、自動の保護</h1>
+    <h1>ProcessGuardian for macOS<br>安心の監視、自動の保護</h1>
 </p>
 
 <p align="center">
