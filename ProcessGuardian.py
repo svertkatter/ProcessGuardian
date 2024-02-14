@@ -138,7 +138,7 @@ def restart_process(app_path):
 
 # GUIの構築と起動
 root = tk.Tk()
-root.title("プロセス監視アプリケーション")
+root.title("ProcessGuardian")
 
 settings = load_settings()
 
