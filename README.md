@@ -24,6 +24,6 @@ Venturaでテストされ問題なく動作することが確認されていま�
 
 インストール方法は以下の通りです。
 
-1. GitHubリポジトリから`dist`ディレクトリをダウンロード。
-2. ダウンロードした`dist`ディレクトリ内にある`ProcessGuardian.app`を見つける。
-3. `ProcessGuardian.app`をあなたのMacの`アプリケーション`フォルダに移動してください。
+1. GitHubリポジトリの[最新のリリース](https://github.com/svertkatter/ProcessGuardian/releases)から`ProcessGuardian.dmg`をダウンロードしてください。
+2. ダウンロードした`.dmg`を開き、`ProcessGuardian.app`を`アプリケーション`フォルダにドラッグアンドドロップしてください。
+3. 🎉 インストール完了！ 🎉
