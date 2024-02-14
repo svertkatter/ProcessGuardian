@@ -13,17 +13,19 @@ process_path = ''
 app_path = ''
 interval = 1800  # 監視間隔のデフォルト値（30分
 settings = {}
+settings_path = os.path.join(os.path.expanduser('~'), 'Documents', 'ProcessGuardian', 'settings.json')
 
 line_token_entry = None
 process_path_entry = None
 
 def save_settings(settings):
-    with open('settings.json', 'w') as f:
+    os.makedirs(os.path.dirname(settings_path), exist_ok=True)
+    with open(settings_path, 'w') as f:
         json.dump(settings, f)
 
 def load_settings():
     try:
-        with open('settings.json', 'r') as f:
+        with open(settings_path, 'r') as f:
             settings = json.load(f)
     except FileNotFoundError:
         settings = {}
@@ -117,6 +119,7 @@ def send_line_notify(message):
     data = {'message': message}
     response = requests.post('https://notify-api.line.me/api/notify', headers=headers, data=data)
     print(f"Status Code: {response.status_code}, Response: {response.text}")
+    log_textbox.insert(f"Status Code: {response.status_code}, Response: {response.text} \n")
     return response.status_code
 
 def check_process(path):
