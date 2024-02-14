@@ -1,4 +1,12 @@
-# ProcessGuardian: 安心の監視、自動の保護
+
+<p align="center">
+    <img src="gp-128.ico">
+    <h1>ProcessGuardian for macOS: 安心の監視、自動の保護</h1>
+</p>
+
+<p align="center">
+    <img src="img/main-pg.png">
+</p>
 
 ProcessGuardianは、あなたのシステムを静かに見守る信頼のプロセス監視ツールです。貴重なアプリケーションやサービスが予期せず停止した場合、ProcessGuardianがすぐに察知し、自動的に再起動を行います。この瞬間的な対応により、ダウンタイムを最小限に抑え、ビジネスの継続性を保証します。
 
