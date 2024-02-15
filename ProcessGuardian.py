@@ -18,6 +18,8 @@ settings_path = os.path.join(os.path.expanduser('~'), 'Documents', 'ProcessGuard
 line_token_entry = None
 process_path_entry = None
 
+monitoring_active = False
+
 def save_settings(settings):
     os.makedirs(os.path.dirname(settings_path), exist_ok=True)
     with open(settings_path, 'w') as f:
@@ -79,7 +81,8 @@ def select_app():
 
 def start_monitoring():
     """監視を開始する"""
-    global interval, process_path, app_path
+    global interval, process_path, app_path, monitoring_active
+    monitoring_active = True
     try:
         interval = int(interval_entry.get())
     except ValueError:
@@ -96,11 +99,19 @@ def start_monitoring():
     monitoring_thread = threading.Thread(target=monitor_process, daemon=True)
     monitoring_thread.start()
 
+    log_textbox.insert(tk.END, '監視を開始しました。')
+
+def stop_monitoring():
+    """監視を停止する"""
+    global monitoring_active
+    monitoring_active = False
+    log_textbox.insert(tk.END, '監視を停止しました。')
+
 def monitor_process():
     """プロセスを監視し、必要に応じて再起動する"""
     global process_path
     app_name = os.path.basename(process_path)
-    while True:
+    while monitoring_active:
         if not check_process(process_path):
             log_textbox.insert(tk.END, f'{app_name} が実行中ではありません。再起動します。\n')
             restart_process(app_path)
@@ -161,9 +172,10 @@ interval_entry.grid(column=0, row=6, sticky=(tk.W, tk.E))
 interval_entry.insert(0, "30")  # デフォルト値として30をセット
 
 ttk.Button(frame, text="監視を開始", command=start_monitoring).grid(column=0, row=7, sticky=tk.W, pady=5)
+ttk.Button(frame, text="監視を停止", command=stop_monitoring).grid(column=0, row=8, sticky=tk.W, pady=5)
 
-ttk.Label(frame, text="ログ").grid(column=0, row=8, sticky=tk.W)
+ttk.Label(frame, text="ログ").grid(column=0, row=9, sticky=tk.W)
 log_textbox = tk.Text(frame, width=75, height=10)
-log_textbox.grid(column=0, row=9, columnspan=2, pady=5)
+log_textbox.grid(column=0, row=10, columnspan=2, pady=5)
 
 root.mainloop()
